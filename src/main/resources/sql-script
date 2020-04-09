@@ -1,0 +1,31 @@
+******************* CREATE Database ************************
+CREATE DATABASE spring_security
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+
+
+
+******************* CREATE Table ************************
+CREATE TABLE public."user"
+(
+    id bigint NOT NULL,
+    user_name character varying(100) NOT NULL,
+    password character varying(100) NOT NULL,
+    active boolean NOT NULL,
+    roles character varying(100) NOT NULL,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public."user"
+    OWNER to refact_prod;
+	
+	
+
+******************* Insert data into Table ************************
+insert into public.user values(1,'user','direct2s',true,'ROLE_USER')
